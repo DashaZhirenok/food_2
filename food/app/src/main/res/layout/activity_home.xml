@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.duska.food.HomeActivity"
+    android:background="@drawable/back_cook3"
+    android:focusableInTouchMode="false">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/btn_addNew"
+        android:layout_alignParentStart="true"
+        android:background="@color/color_button"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:drawableEnd="@drawable/ic_help"
+        android:id="@+id/btn_help"
+        android:background="#00007f7b"
+        android:allowUndo="false"
+        android:layout_marginEnd="34dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="55dp"
+        android:drawableStart="@drawable/ic_add"
+        android:id="@+id/btn_addNew"
+        android:nestedScrollingEnabled="false"
+        android:background="#00ffffff"
+        android:layout_marginStart="52dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/btn_show" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:id="@+id/btn_show"
+        android:background="#00ffffff"
+        android:drawableStart="@drawable/ic_show"
+        android:layout_marginStart="33dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:id="@+id/btn_Settings"
+        android:background="#00ffffff"
+        android:drawableEnd="@drawable/ic_settings"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_toEndOf="@+id/btn_addNew"
+        android:layout_marginStart="52dp" />
+
+</RelativeLayout>

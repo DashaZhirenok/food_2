@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:background="@color/color_back"
+    android:weightSum="1">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view"
+            card_view:cardElevation="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            card_view:cardBackgroundColor="@color/color_text"
+            card_view:cardCornerRadius="2dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/image_cook"/>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <!-- первая таблица -->
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:textColorHint="@color/color_text_hint">
+
+        <EditText
+            android:id="@+id/etNameofdish"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/color_ettext"
+            android:hint="Name of dish"
+            android:inputType="textPersonName"
+            android:textColor="@color/color_text"
+            android:textSize="20dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_text_hint">
+
+            <EditText
+                android:id="@+id/etMealtime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="@color/color_ettext"
+                android:hint="Mealtime (breakfast, dinner...)"
+                android:inputType="textPersonName"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:textColor="@color/color_text"
+                android:textSize="20dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_text_hint">
+
+            <EditText
+                android:id="@+id/etCategory"
+                android:hint="Category (soup, dessert...)"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/color_ettext"
+                android:inputType="textPersonName"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:textColor="@color/color_text"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp" />
+        </android.support.design.widget.TextInputLayout>
+
+    <!-- вторая таблица -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_text_hint">
+
+            <EditText
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:id="@+id/etIngredients1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:hint="Ingredients"
+                android:layout_width="259dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/color_ettext"
+                android:inputType="textPersonName"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/color_text"
+                android:textSize="20dp" />
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_text_hint">
+
+            <EditText
+                android:id="@+id/etPrice1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="price"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_column="47"
+                android:backgroundTint="@color/color_ettext"
+                android:inputType="textPersonName"
+                android:textColor="@color/color_text"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:textSize="20dp" />
+        </android.support.design.widget.TextInputLayout>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_text_hint">
+
+            <EditText
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:id="@+id/etIngredients2"
+                android:hint="Ingredients"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_width="259dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/color_ettext"
+                android:inputType="textPersonName"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/color_text"
+                android:textSize="20dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_text_hint">
+
+            <EditText
+                android:id="@+id/etPrice2"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="price"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="20dp"
+                android:layout_column="47"
+                android:backgroundTint="@color/color_ettext"
+                android:inputType="textPersonName"
+                android:textColor="@color/color_text" />
+        </android.support.design.widget.TextInputLayout>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_text_hint">
+
+            <EditText
+                android:id="@+id/etIngredients3"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/color_ettext"
+                android:hint="Ingredients"
+                android:inputType="textPersonName"
+                android:textColor="@color/color_text"
+                android:textSize="20dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_text_hint">
+
+            <EditText
+                android:id="@+id/etPrice3"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="price"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="20dp"
+                android:layout_column="47"
+                android:backgroundTint="@color/color_ettext"
+                android:inputType="textPersonName"
+                android:textColor="@color/color_text" />
+        </android.support.design.widget.TextInputLayout>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_text_hint">
+
+            <EditText
+                android:id="@+id/etIngredients4"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/color_ettext"
+                android:hint="Ingredients"
+                android:inputType="textPersonName"
+                android:textColor="@color/color_text"
+                android:textSize="20dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_text_hint">
+
+            <EditText
+                android:id="@+id/etPrice4"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="price"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="20dp"
+                android:layout_column="47"
+                android:backgroundTint="@color/color_ettext"
+                android:inputType="textPersonName"
+                android:textColor="@color/color_text" />
+        </android.support.design.widget.TextInputLayout>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_text_hint">
+
+            <EditText
+                android:id="@+id/etIngredients5"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:backgroundTint="@color/color_ettext"
+                android:hint="Ingredients"
+                android:inputType="textPersonName"
+                android:textColor="@color/color_text"
+                android:textSize="20dp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/color_text_hint">
+
+            <EditText
+                android:id="@+id/etPrice5"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="price"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="20dp"
+                android:layout_column="47"
+                android:backgroundTint="@color/color_ettext"
+                android:inputType="textPersonName"
+                android:textColor="@color/color_text" />
+        </android.support.design.widget.TextInputLayout>
+    </TableRow>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="220dp"
+            android:id="@+id/text_of_recipe"
+            android:background="@color/color_back"
+            android:hint="Text of recipe..."
+            android:textSize="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/color_text"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:id="@+id/imageView2"
+            android:layout_alignParentTop="true"
+            android:background="@color/color_button" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:drawableStart="@drawable/ic_add"
+            android:background="#00ffffff"
+            android:layout_marginStart="37dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+        </Button>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:id="@+id/btnDelete"
+            android:drawableEnd="@drawable/ic_clear"
+            android:background="#00ffffff"
+            android:layout_marginEnd="37dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:id="@+id/button"
+            android:drawableEnd="@drawable/ic_clear_strings"
+            android:background="#00ffffff"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+
+</TableLayout>
+    </ScrollView>
