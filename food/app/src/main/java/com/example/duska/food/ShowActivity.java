@@ -22,7 +22,6 @@ import java.util.List;
 public class ShowActivity extends AppCompatActivity implements View.OnClickListener{
 
 
-
     Button btnAdd, btnDelete, button, show, btn_help;
     EditText etNameofdish, etMealtime, etCategory, etIngredients1, etIngredients2, etIngredients3, etIngredients4, etIngredients5;
     EditText etPrice1, etPrice2, etPrice3, etPrice4, etPrice5;
@@ -38,7 +37,6 @@ public class ShowActivity extends AppCompatActivity implements View.OnClickListe
         List<View> pages = new ArrayList<View>();
 
         //the first page
-
         View page = inflater.inflate(R.layout.activity_main, null);
 
         //
@@ -68,7 +66,6 @@ public class ShowActivity extends AppCompatActivity implements View.OnClickListe
         dbHelper = new DBHelper(this);
 
         pages.add(page);
-
         //the second page
         page = inflater.inflate(R.layout.activity_show, null);
         textmenu = (TextView) page.findViewById(R.id.textmenu);

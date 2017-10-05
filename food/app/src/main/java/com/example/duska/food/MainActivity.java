@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         scrollView = (ScrollView) findViewById(R.id.scrollView);
         dbHelper = new DBHelper(this);
 
+
     }
 
     @Override

@@ -2,47 +2,49 @@ package com.example.duska.food;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
-public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
+/**
+ * Created by Duska on 05.10.2017.
+ */
+public class SettingsFragment extends Fragment implements View.OnClickListener {
 
-    Button btn_readLog, btn_deleteAll;
-    DBHelper dbHelper;
-
+    private Button btn_readLog, btn_deleteAll;
+    private DBHelper dbHelper;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+    }
 
-        Toolbar mActionBarToolbar2 = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mActionBarToolbar2);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view  = inflater.inflate(R.layout.activity_settings, container, false);
 
-        btn_readLog = (Button) findViewById(R.id.btn_readLog);
+        btn_readLog = (Button) view.findViewById(R.id.btn_readLog);
         btn_readLog.setOnClickListener(this);
 
-        btn_deleteAll = (Button) findViewById(R.id.btn_deleteAll);
+        btn_deleteAll = (Button) view.findViewById(R.id.btn_deleteAll);
         btn_deleteAll.setOnClickListener(this);
+        dbHelper = new DBHelper(getActivity().getApplication());
 
-        dbHelper = new DBHelper(this);
 
+        return view;
 
     }
 
-
-
-
     @Override
-    public void onClick(View v) {
-
+    public void onClick(View view) {
         SQLiteDatabase database = dbHelper.getWritableDatabase();
 
-        switch (v.getId())
+        switch (view.getId())
         {
             case R.id.btn_deleteAll: //полное удаление данных из таблицы
                 database.delete(DBHelper.TABLE_MENU, null, null);
@@ -58,7 +60,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                     int idIndex = cursor.getColumnIndex(DBHelper.KEY_ID);
                     int nameofdishIndex = cursor.getColumnIndex(DBHelper.KEY_NAMEOFDISH);
                     int mealtimeIndex = cursor.getColumnIndex(DBHelper.KEY_MEALTIME);
-                   // int categoryIndex = cursor.getColumnIndex(DBHelper.KEY_CATEGORY);
+                    // int categoryIndex = cursor.getColumnIndex(DBHelper.KEY_CATEGORY);
                     do {
                         Log.d("mLog", "-------------------1--------------" + "ID = " + cursor.getInt(idIndex) +
                                 ", name of dish = " + cursor.getString(nameofdishIndex) +
@@ -89,6 +91,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
 
         }
+
 
     }
 }
