@@ -19,36 +19,6 @@
             android:id="@+id/tabs"
             android:layout_width="match_parent">
 
-            <android.support.design.widget.TabItem
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:id="@+id/tabItem_home"
-                android:icon="@drawable/ic_menu_home"/>
-
-            <android.support.design.widget.TabItem
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:id="@+id/tabItem_show"
-                android:icon="@drawable/ic_show"/>
-
-            <android.support.design.widget.TabItem
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:id="@+id/tabItem_add"
-                android:icon="@drawable/ic_add"/>
-
-            <android.support.design.widget.TabItem
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:id="@+id/tabItem_settings"
-                android:icon="@drawable/ic_settings"/>
-
-            <android.support.design.widget.TabItem
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:id="@+id/tabItem_help"
-                android:icon="@drawable/ic_help"/>
-
         </android.support.design.widget.TabLayout>
 
 

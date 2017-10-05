@@ -35,7 +35,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         btn_deleteAll.setOnClickListener(this);
         dbHelper = new DBHelper(getActivity().getApplication());
 
-
         return view;
 
     }

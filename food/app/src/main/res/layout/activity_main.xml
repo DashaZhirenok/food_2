@@ -358,8 +358,8 @@
 
         <Button
             android:id="@+id/btnAdd"
-            android:layout_width="50dp"
-            android:layout_height="55dp"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
             android:drawableStart="@drawable/ic_add"
             android:background="#00ffffff"
             android:layout_marginStart="37dp"
@@ -368,8 +368,8 @@
         </Button>
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/btnDelete"
             android:drawableEnd="@drawable/ic_clear"
             android:background="#00ffffff"
@@ -378,8 +378,8 @@
             android:layout_alignParentEnd="true" />
 
         <Button
-            android:layout_width="50dp"
-            android:layout_height="55dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/button"
             android:drawableEnd="@drawable/ic_clear_strings"
             android:background="#00ffffff"
