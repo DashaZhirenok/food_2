@@ -19,23 +19,21 @@ import android.widget.Toast;
  */
 public class MainFragment extends Fragment implements View.OnClickListener{
 
-    private Button btnAdd, btnDelete, btnClear;
-    private EditText etNameofdish, etMealtime, etCategory, etIngredients1, etIngredients2, etIngredients3, etIngredients4, etIngredients5;
-    private EditText etPrice1, etPrice2, etPrice3, etPrice4, etPrice5;
+    private Button btnAdd, btnDelete;
+    private EditText etNameofdish, etMealtime, etCategory, etCookingTime, etIngredients1;
     private TextView text_of_recipe;
-    private DBHelper dbHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        HomeActivity.dbHelper = new DBHelper(getActivity());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.activity_main, container, false);
-
-        dbHelper = new DBHelper(getActivity().getApplication());
+        View view =  inflater.inflate(R.layout.fragment_main, container, false);
 
         btnAdd = (Button) view.findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(this);
@@ -43,22 +41,13 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         btnDelete = (Button) view.findViewById(R.id.btnDelete);
         btnDelete.setOnClickListener(this);
 
-        btnClear = (Button) view.findViewById(R.id.button);
-        btnClear.setOnClickListener(this);
-
         etNameofdish = (EditText) view.findViewById(R.id.etNameofdish);
         etMealtime = (EditText) view.findViewById(R.id.etMealtime);
         etCategory = (EditText) view.findViewById(R.id.etCategory);
-        etPrice1 = (EditText) view.findViewById(R.id.etPrice1);
-        etPrice2 = (EditText) view.findViewById(R.id.etPrice2);
-        etPrice3 = (EditText) view.findViewById(R.id.etPrice3);
-        etPrice4 = (EditText) view.findViewById(R.id.etPrice4);
-        etPrice5 = (EditText) view.findViewById(R.id.etPrice5);
+        etCookingTime = (EditText) view.findViewById(R.id.etCookingTime);
+
         etIngredients1 =(EditText) view.findViewById(R.id.etIngredients1);
-        etIngredients2 =(EditText) view.findViewById(R.id.etIngredients2);
-        etIngredients3 =(EditText) view.findViewById(R.id.etIngredients3);
-        etIngredients4 =(EditText) view.findViewById(R.id.etIngredients4);
-        etIngredients5 =(EditText) view.findViewById(R.id.etIngredients5);
+
         text_of_recipe = (TextView) view.findViewById(R.id.text_of_recipe);
 
         return view;
@@ -75,98 +64,63 @@ public class MainFragment extends Fragment implements View.OnClickListener{
                     Toast.LENGTH_SHORT).show();
             return;
         }
+        else {
+            // the first table
+            String nameofdish = etNameofdish.getText().toString();
+            String mealtime = etMealtime.getText().toString();
+            String category = etCategory.getText().toString();
+            String cookingtime = etCookingTime.getText().toString();
+
+            // the second table
+            String ingredients1 = etIngredients1.getText().toString();
+
+            // the third table
+            String recipe = text_of_recipe.getText().toString();
+
+            SQLiteDatabase database = HomeActivity.dbHelper.getWritableDatabase();
+
+            ContentValues contentValues = new ContentValues();
+            ContentValues contentValues2 = new ContentValues();
+            ContentValues contentValues3 = new ContentValues();
 
 
-        String nameofdish = etNameofdish.getText().toString();
-        String mealtime = etMealtime.getText().toString();
-        String category = etCategory.getText().toString();
-        String ingredients1 = etIngredients1.getText().toString();
-        String price1 = etPrice1.getText().toString();
-        String price2 = etPrice2.getText().toString();
-        String price3 = etPrice3.getText().toString();
-        String price4 = etPrice4.getText().toString();
-        String price5 = etPrice5.getText().toString();
-        String ingredients2 = etIngredients2.getText().toString();
-        String ingredients3 = etIngredients3.getText().toString();
-        String ingredients4 = etIngredients4.getText().toString();
-        String ingredients5 = etIngredients5.getText().toString();
-        String recipe = text_of_recipe.getText().toString();
+            switch (view.getId()) {
 
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
+                case R.id.btnAdd: //добавление данных в таблицу
+                    contentValues.put(DBHelper.KEY_NAMEOFDISH, nameofdish);
+                    contentValues.put(DBHelper.KEY_MEALTIME, mealtime);
+                    contentValues.put(DBHelper.KEY_CATEGORY, category);
+                    contentValues.put(DBHelper.KEY_COOKINGTIME, cookingtime);
 
-        ContentValues contentValues = new ContentValues();
-        ContentValues contentValues2 = new ContentValues();
-        ContentValues contentValues3 = new ContentValues();
+                    contentValues2.put(DBHelper.KEY_NUMBEROFDISH, nameofdish);
+                    contentValues2.put(DBHelper.KEY_INGREDIENT, ingredients1);
 
+                    contentValues3.put(DBHelper.KEY_RECIPE, recipe);
+                    contentValues3.put(DBHelper.KEY_NAMEOFDISHINRECIPE, nameofdish);
 
-        switch (view.getId()) {
+                    database.insert(DBHelper.TABLE_MENU, null, contentValues);
+                    database.insert(DBHelper.TABLE_LISTOFPRODUCTS, null, contentValues2);
+                    database.insert(DBHelper.TABLE_RECIPES, null, contentValues3);
 
-            case R.id.btnAdd: //добавление данных в таблицу
-                contentValues.put(DBHelper.KEY_NAMEOFDISH, nameofdish);
-                contentValues.put(DBHelper.KEY_MEALTIME, mealtime);
-                contentValues.put(DBHelper.KEY_CATEGORY, category);
-
-                contentValues2.put(DBHelper.KEY_NUMBEROFDISH, nameofdish);
-                contentValues2.put(DBHelper.KEY_INGREDIENT, ingredients1);
-                contentValues2.put(DBHelper.KEY_PRICE, price1);
-                database.insert(DBHelper.TABLE_LISTOFPRODUCTS, null, contentValues2);
-
-                contentValues2.put(DBHelper.KEY_INGREDIENT, ingredients2);
-                contentValues2.put(DBHelper.KEY_PRICE, price2);
-                database.insert(DBHelper.TABLE_LISTOFPRODUCTS, null, contentValues2);
-
-                contentValues2.put(DBHelper.KEY_INGREDIENT, ingredients3);
-                contentValues2.put(DBHelper.KEY_PRICE, price3);
-                database.insert(DBHelper.TABLE_LISTOFPRODUCTS, null, contentValues2);
-
-                contentValues2.put(DBHelper.KEY_INGREDIENT, ingredients4);
-                contentValues2.put(DBHelper.KEY_PRICE, price4);
-                database.insert(DBHelper.TABLE_LISTOFPRODUCTS, null, contentValues2);
-
-                contentValues2.put(DBHelper.KEY_INGREDIENT, ingredients5);
-                contentValues2.put(DBHelper.KEY_PRICE, price5);
-
-                contentValues3.put(DBHelper.KEY_RECIPE, recipe);
-                contentValues3.put(DBHelper.KEY_NAMEOFDISHINRECIPE, nameofdish);
-
-                database.insert(DBHelper.TABLE_MENU, null, contentValues);
-                database.insert(DBHelper.TABLE_LISTOFPRODUCTS, null, contentValues2);
-                database.insert(DBHelper.TABLE_RECIPES, null, contentValues3);
-
-                break;
-
-
-            case R.id.btnDelete: // удаление какого-то конкретного блюда
-            {
-                if (nameofdish.equalsIgnoreCase("")) {
                     break;
-                }
-                int updCount = database.delete(DBHelper.TABLE_MENU, DBHelper.KEY_NAMEOFDISH + " = ? ", new String[]{nameofdish});
-                int updCount2 = database.delete(DBHelper.TABLE_LISTOFPRODUCTS, DBHelper.KEY_NUMBEROFDISH + " = ?", new String[]{nameofdish});
-                int updCount3 = database.delete(DBHelper.TABLE_RECIPES, DBHelper.KEY_NAMEOFDISHINRECIPE + " = ?", new String[]{nameofdish});
-                Log.d("mLog", "deleted rows count = " + updCount);
-                Log.d("mLog", "deleted rows count = " + updCount2);
-                Log.d("mLog", "deleted rows count = " + updCount3);
-            }
-            case R.id.button: // удаление полей
-            {
-                etNameofdish.setText("");
-                etMealtime.setText("");
-                etCategory.setText("");
-                etIngredients1.setText("");
-                etIngredients2.setText("");
-                etIngredients3.setText("");
-                etIngredients4.setText("");
-                etIngredients5.setText("");
-                etPrice1.setText("");
-                etPrice2.setText("");
-                etPrice3.setText("");
-                etPrice4.setText("");
-                etPrice5.setText("");
-                text_of_recipe.setText("");
-            }
 
+
+                case R.id.btnDelete: // удаление какого-то конкретного блюда
+                {
+                    if (nameofdish.equalsIgnoreCase("")) {
+                        break;
+                    }
+                    int updCount = database.delete(DBHelper.TABLE_MENU, DBHelper.KEY_NAMEOFDISH + " = ? ", new String[]{nameofdish});
+                    int updCount2 = database.delete(DBHelper.TABLE_LISTOFPRODUCTS, DBHelper.KEY_NUMBEROFDISH + " = ?", new String[]{nameofdish});
+                    int updCount3 = database.delete(DBHelper.TABLE_RECIPES, DBHelper.KEY_NAMEOFDISHINRECIPE + " = ?", new String[]{nameofdish});
+                    Log.d("mLog", "deleted rows count = " + updCount);
+                    Log.d("mLog", "deleted rows count = " + updCount2);
+                    Log.d("mLog", "deleted rows count = " + updCount3);
+                }
+
+
+            }
+            HomeActivity.dbHelper.close();
         }
-        dbHelper.close();
     }
 }

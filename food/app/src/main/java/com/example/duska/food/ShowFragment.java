@@ -17,25 +17,24 @@ import android.widget.TextView;
 public class ShowFragment extends Fragment {
     Button show;
     TextView textmenu, textshow;
-    DBHelper dbHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        HomeActivity.dbHelper = new DBHelper(getActivity());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.activity_show, container, false);
+        View view = inflater.inflate(R.layout.fragment_show, container, false);
 
         textmenu = (TextView) view.findViewById(R.id.textmenu);
         textshow = (TextView) view.findViewById(R.id.textshow);
         show = (Button) view.findViewById(R.id.show);
 
         show.setOnClickListener(OncShow);
-        dbHelper = new DBHelper(getActivity().getApplicationContext());
 
         return view;
 
@@ -49,7 +48,7 @@ public class ShowFragment extends Fragment {
                 return;
             }
 
-            SQLiteDatabase database = dbHelper.getWritableDatabase();
+            SQLiteDatabase database = HomeActivity.dbHelper.getWritableDatabase();
 
             // Делаем запрос
             Cursor cursor3 = database.query(DBHelper.TABLE_MENU, null, null, null, null, null, null);
@@ -64,10 +63,6 @@ public class ShowFragment extends Fragment {
                 // Узнаем индекс каждого столбца
                 int idColumnIndex = cursor3.getColumnIndex(DBHelper.KEY_ID);
                 int IngredientColumnIndex = cursor4.getColumnIndex(DBHelper.KEY_INGREDIENT);
-                int Ingredient2ColumnIndex = cursor4.getColumnIndex(DBHelper.KEY_INGREDIENT);
-                int Ingredient3ColumnIndex = cursor4.getColumnIndex(DBHelper.KEY_INGREDIENT);
-                int Ingredient4ColumnIndex = cursor4.getColumnIndex(DBHelper.KEY_INGREDIENT);
-                int Ingredient5ColumnIndex = cursor4.getColumnIndex(DBHelper.KEY_INGREDIENT);
 
                 int id2ColumnIndex = cursor4.getColumnIndex(DBHelper.KEY_ID2);
                 int MealtimeColumnIndex = cursor3.getColumnIndex(DBHelper.KEY_MEALTIME);
@@ -88,13 +83,6 @@ public class ShowFragment extends Fragment {
 
                     String currentIngredient = cursor4.getString(IngredientColumnIndex);
                     cursor4.moveToNext();
-                    String currentIngredient2 = cursor4.getString(Ingredient2ColumnIndex);
-                    cursor4.moveToNext();
-                    String currentIngredient3 = cursor4.getString(Ingredient3ColumnIndex);
-                    cursor4.moveToNext();
-                    String currentIngredient4 = cursor4.getString(Ingredient4ColumnIndex);
-                    cursor4.moveToNext();
-                    String currentIngredient5 = cursor4.getString(Ingredient5ColumnIndex);
 
                     String currentRecipe = cursor5.getString(RecipeColumnIndex);
 
@@ -111,35 +99,6 @@ public class ShowFragment extends Fragment {
                     {
                         textshow.append(("\n"  + "Ingredients: " + "\n" + "1. " +
                                 currentIngredient + "\n"));
-                    }
-
-                    if (TextUtils.isEmpty(currentIngredient2)) //проверка условия на то, что ingredient существует
-                    {
-                        return;
-                    }else
-                    {
-                        textshow.append(("2. " + currentIngredient2 + "\n"));
-                    }
-                    if (TextUtils.isEmpty(currentIngredient3)) //проверка условия на то, что ingredient существует
-                    {
-                        return;
-                    }else
-                    {
-                        textshow.append(("3. " + currentIngredient3 + "\n"));
-                    }
-                    if (TextUtils.isEmpty(currentIngredient4)) //проверка условия на то, что ingredient существует
-                    {
-                        return;
-                    }else
-                    {
-                        textshow.append(("4. " + currentIngredient4 + "\n"));
-                    }
-                    if (TextUtils.isEmpty(currentIngredient5)) //проверка условия на то, что ingredient существует
-                    {
-                        return;
-                    }else
-                    {
-                        textshow.append(("5. " + currentIngredient5 + "\n"));
                     }
 
                     textshow.append(("\n"));
@@ -160,6 +119,7 @@ public class ShowFragment extends Fragment {
                 // Всегда закрываем курсор после чтения
                 cursor3.close();
                 cursor4.close();
+                HomeActivity.dbHelper.close();
             }
 
         }
