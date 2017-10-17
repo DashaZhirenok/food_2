@@ -1,15 +1,17 @@
 <resources>
     <string name="app_name">Let`s cook!</string>
 
-    <string name="menu_show">Show</string>
-    <string name="menu_about">About</string>
-    <string name="menu_author">Author</string>
-    <string name="menu_add">Add</string>
-    <string name="help">Help</string>
-    <string name="menu_home">Home</string>
-
+    <!-- fragment settings -->
     <string name="settings_read">If you want to READ IN LOG, click this button</string>
     <string name="settings_clearAll">If you want to CLEAR ALL, click this button</string>
     <string name="settings_xml">If you want read in XML, click this button</string>
+
+    <!-- fragment_main -->
+    <string name="hint_NameOfDIsh">Name of dish</string>
+    <string name="hint_Mealtime">Mealtime (breakfast, dinner..)</string>
+    <string name="hint_Category">Category (soup, dessert..)</string>
+    <string name="hint_Ingredients">Ingredients</string>
+    <string name="hint_CookingTime">Cooking time</string>
+    <string name="hint_TextOfRecipe">Text of recipe</string>
 
 </resources>

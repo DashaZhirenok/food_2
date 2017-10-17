@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
@@ -10,7 +9,7 @@
     android:background="@color/color_back"
     android:weightSum="1">
 
-
+    <!-- Image -->
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,21 +21,21 @@
             android:layout_centerHorizontal="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            card_view:cardBackgroundColor="@color/color_text"
+            card_view:cardBackgroundColor="@color/color_ettext"
             card_view:cardCornerRadius="2dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginBottom="10dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/image_cook"/>
+                <ImageView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/image_cook"/>
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
@@ -44,66 +43,126 @@
 
     <!-- первая таблица -->
 
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="20dp"
-            android:textColorHint="@color/color_text_hint">
+            android:weightSum="10"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/etNameofdish"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:layout_width="match_parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/color_ettext"
-            android:hint="Name of dish"
-            android:inputType="textPersonName"
-            android:textColor="@color/color_text"
-            android:textSize="20dp" />
-        </android.support.design.widget.TextInputLayout>
+            <ImageView
+                android:id="@+id/icon_nameOfDish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="35dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_nameofdish"/>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/color_text_hint">
-
-            <EditText
-                android:id="@+id/etMealtime"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:backgroundTint="@color/color_ettext"
-                android:hint="Mealtime (breakfast, dinner...)"
-                android:inputType="textPersonName"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:textColor="@color/color_text"
-                android:textSize="20dp" />
-        </android.support.design.widget.TextInputLayout>
+                android:paddingTop="20dp"
+                android:layout_weight="9"
+                android:textColorHint="@color/color_text_hint">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/etNameofdish"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/color_ettext"
+                    android:hint="@string/hint_NameOfDIsh"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/color_text"
+                    android:textSize="20dp" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColorHint="@color/color_text_hint">
+            android:weightSum="10"
+            android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/etCategory"
-                android:hint="Category (soup, dessert...)"
+            <ImageView
+                android:id="@+id/icon_mealtime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_mealtime"/>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/color_ettext"
-                android:inputType="textPersonName"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:textColor="@color/color_text"
-                android:layout_marginTop="10dp"
-                android:textSize="20dp" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_weight="9"
+                android:textColorHint="@color/color_text_hint">
+
+                <EditText
+                    android:id="@+id/etMealtime"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/color_ettext"
+                    android:hint="@string/hint_Mealtime"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/color_text"
+                    android:textSize="20dp" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:weightSum="10"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/icon_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_category"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:textColorHint="@color/color_text_hint">
+
+                <EditText
+                    android:id="@+id/etCategory"
+                    android:hint="@string/hint_Category"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/color_ettext"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/color_text"
+                    android:textSize="20dp" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
 
     <!-- вторая таблица -->
         <LinearLayout
@@ -124,27 +183,27 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_ingredients"/>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:textColorHint="@color/color_text_hint">
-
-            <EditText
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:id="@+id/etIngredients1"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp"
-                android:hint="Ingredients"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/color_ettext"
-                android:inputType="textMultiLine"
-                android:lines="4"
-                android:textColor="@color/color_text"
-                android:textSize="20dp" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_weight="9"
+                android:textColorHint="@color/color_text_hint">
+
+                <EditText
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:id="@+id/etIngredients1"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/hint_Ingredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/color_ettext"
+                    android:inputType="textMultiLine"
+                    android:lines="4"
+                    android:textColor="@color/color_text"
+                    android:textSize="20dp" />
+            </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
 
@@ -177,7 +236,7 @@
                     android:id="@+id/etCookingTime"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="20dp"
-                    android:hint="Cooking time"
+                    android:hint="@string/hint_CookingTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/color_ettext"
@@ -208,64 +267,62 @@
                 android:scaleType="fitXY"
                 android:src="@drawable/ic_recipe"/>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:textColorHint="@color/color_text_hint">
-
-            <EditText
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:id="@+id/text_of_recipe"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="20dp"
-                android:hint="Text of recipe..."
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/color_ettext"
-                android:inputType="textMultiLine"
-                android:lines="6"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/color_text"
-                android:textSize="20dp" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_weight="9"
+                android:textColorHint="@color/color_text_hint">
+
+                <EditText
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:id="@+id/text_of_recipe"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="20dp"
+                    android:hint="@string/hint_TextOfRecipe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/color_ettext"
+                    android:inputType="textMultiLine"
+                    android:lines="6"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/color_text"
+                    android:textSize="20dp" />
+            </android.support.design.widget.TextInputLayout>
 
         </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:id="@+id/imageView2"
-            android:layout_alignParentTop="true"
-            android:background="@color/color_button" />
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/btnAdd"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:drawableStart="@drawable/ic_add"
-            android:background="#00ffffff"
-            android:layout_marginStart="37dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true">
-        </Button>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:id="@+id/imageView2"
+                android:layout_alignParentTop="true"
+                android:background="@color/color_button" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnDelete"
-            android:drawableEnd="@drawable/ic_clear"
-            android:background="#00ffffff"
-            android:layout_marginEnd="37dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true" />
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:drawableStart="@drawable/ic_add"
+                android:background="#00ffffff"
+                android:layout_marginStart="37dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true">
+            </Button>
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnDelete"
+                android:drawableEnd="@drawable/ic_clear"
+                android:background="#00ffffff"
+                android:layout_marginEnd="37dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
 
-    </RelativeLayout>
-
-</TableLayout>
-    </ScrollView>
+    </TableLayout>
+</ScrollView>

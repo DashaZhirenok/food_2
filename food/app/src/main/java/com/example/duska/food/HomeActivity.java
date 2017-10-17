@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity  {
 
         adapter.addFragment(new HomeFragment(), "Home");
         adapter.addFragment(new MainFragment(), "Add");
-        adapter.addFragment(new ShowFragment(), "Show");
+        adapter.addFragment(new CategoryFragment(), "Show");
         adapter.addFragment(new SettingsFragment(), "Settings");
         adapter.addFragment(new HelpFragment(), "Help");
         viewPager.setAdapter(adapter);
