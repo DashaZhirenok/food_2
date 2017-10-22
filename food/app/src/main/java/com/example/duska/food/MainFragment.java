@@ -20,7 +20,7 @@ import android.widget.Toast;
 public class MainFragment extends Fragment implements View.OnClickListener{
 
     private Button btnAdd, btnDelete;
-    private EditText etNameofdish, etMealtime, etCategory, etCookingTime, etIngredients1;
+    private EditText etNameofdish, etCategory, etCookingTime, etIngredients1;
     private TextView text_of_recipe;
 
     @Override
@@ -42,7 +42,6 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         btnDelete.setOnClickListener(this);
 
         etNameofdish = (EditText) view.findViewById(R.id.etNameofdish);
-        etMealtime = (EditText) view.findViewById(R.id.etMealtime);
         etCategory = (EditText) view.findViewById(R.id.etCategory);
         etCookingTime = (EditText) view.findViewById(R.id.etCookingTime);
 
@@ -67,7 +66,6 @@ public class MainFragment extends Fragment implements View.OnClickListener{
         else {
             // the first table
             String nameofdish = etNameofdish.getText().toString();
-            String mealtime = etMealtime.getText().toString();
             String category = etCategory.getText().toString();
             String cookingtime = etCookingTime.getText().toString();
 
@@ -81,26 +79,21 @@ public class MainFragment extends Fragment implements View.OnClickListener{
 
             ContentValues contentValues = new ContentValues();
             ContentValues contentValues2 = new ContentValues();
-            ContentValues contentValues3 = new ContentValues();
 
 
             switch (view.getId()) {
 
                 case R.id.btnAdd: //добавление данных в таблицу
                     contentValues.put(DBHelper.KEY_NAMEOFDISH, nameofdish);
-                    contentValues.put(DBHelper.KEY_MEALTIME, mealtime);
                     contentValues.put(DBHelper.KEY_CATEGORY, category);
                     contentValues.put(DBHelper.KEY_COOKINGTIME, cookingtime);
+                    contentValues.put(DBHelper.KEY_INGREDIENTS, ingredients1);
 
-                    contentValues2.put(DBHelper.KEY_NUMBEROFDISH, nameofdish);
-                    contentValues2.put(DBHelper.KEY_INGREDIENT, ingredients1);
-
-                    contentValues3.put(DBHelper.KEY_RECIPE, recipe);
-                    contentValues3.put(DBHelper.KEY_NAMEOFDISHINRECIPE, nameofdish);
+                    contentValues2.put(DBHelper.KEY_RECIPE, recipe);
+                    contentValues2.put(DBHelper.KEY_NAMEOFDISHINRECIPE, nameofdish);
 
                     database.insert(DBHelper.TABLE_MENU, null, contentValues);
-                    database.insert(DBHelper.TABLE_LISTOFPRODUCTS, null, contentValues2);
-                    database.insert(DBHelper.TABLE_RECIPES, null, contentValues3);
+                    database.insert(DBHelper.TABLE_RECIPES, null, contentValues2);
 
                     break;
 
@@ -111,10 +104,8 @@ public class MainFragment extends Fragment implements View.OnClickListener{
                         break;
                     }
                     int updCount = database.delete(DBHelper.TABLE_MENU, DBHelper.KEY_NAMEOFDISH + " = ? ", new String[]{nameofdish});
-                    int updCount2 = database.delete(DBHelper.TABLE_LISTOFPRODUCTS, DBHelper.KEY_NUMBEROFDISH + " = ?", new String[]{nameofdish});
                     int updCount3 = database.delete(DBHelper.TABLE_RECIPES, DBHelper.KEY_NAMEOFDISHINRECIPE + " = ?", new String[]{nameofdish});
                     Log.d("mLog", "deleted rows count = " + updCount);
-                    Log.d("mLog", "deleted rows count = " + updCount2);
                     Log.d("mLog", "deleted rows count = " + updCount3);
                 }
 

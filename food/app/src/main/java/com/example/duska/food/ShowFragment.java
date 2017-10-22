@@ -52,7 +52,6 @@ public class ShowFragment extends Fragment {
 
             // Делаем запрос
             Cursor cursor3 = database.query(DBHelper.TABLE_MENU, null, null, null, null, null, null);
-            Cursor cursor4 = database.query(DBHelper.TABLE_LISTOFPRODUCTS, null,null, null, null, null,null);
             Cursor cursor5 = database.query(DBHelper.TABLE_RECIPES, null,null, null, null, null,null);
             try {
                 //  textmenu.setText("List of menu\n");
@@ -61,44 +60,39 @@ public class ShowFragment extends Fragment {
                 //    DBHelper.KEY_CATEGORY + "\n");
 
                 // Узнаем индекс каждого столбца
-                int idColumnIndex = cursor3.getColumnIndex(DBHelper.KEY_ID);
-                int IngredientColumnIndex = cursor4.getColumnIndex(DBHelper.KEY_INGREDIENT);
 
-                int id2ColumnIndex = cursor4.getColumnIndex(DBHelper.KEY_ID2);
-                int MealtimeColumnIndex = cursor3.getColumnIndex(DBHelper.KEY_MEALTIME);
+                int idColumnIndex = cursor3.getColumnIndex(DBHelper.KEY_ID);
                 int NameofdishColumnIndex = cursor3.getColumnIndex(DBHelper.KEY_NAMEOFDISH);
                 int CategoryColumnIndex = cursor3.getColumnIndex(DBHelper.KEY_CATEGORY);
+                int CookingTimeColumnIndex = cursor3.getColumnIndex(DBHelper.KEY_COOKINGTIME);
+                int IngredientsColumnIndex = cursor3.getColumnIndex(DBHelper.KEY_INGREDIENTS);
 
                 int RecipeColumnIndex = cursor5.getColumnIndex(DBHelper.KEY_RECIPE);
 
 
                 // Проходим через все ряды
-                while (cursor3.moveToNext() && cursor4.moveToNext() & cursor5.moveToNext()) {
-                    // Используем индекс для получения строки или числа
-                    int currentID2 = cursor4.getInt(id2ColumnIndex);
+                while (cursor3.moveToNext() & cursor5.moveToNext()) {
+                    // Используем индекс для получения строки или числ
                     int currentID = cursor3.getInt(idColumnIndex);
                     String currentNameofdish = cursor3.getString(NameofdishColumnIndex);
-                    String currentMealtime = cursor3.getString(MealtimeColumnIndex);
                     String currentCategory = cursor3.getString(CategoryColumnIndex);
-
-                    String currentIngredient = cursor4.getString(IngredientColumnIndex);
-                    cursor4.moveToNext();
+                    String currentCookingTime = cursor3.getString(CookingTimeColumnIndex);
+                    String currentIngredients = cursor3.getString(IngredientsColumnIndex);
 
                     String currentRecipe = cursor5.getString(RecipeColumnIndex);
 
                     // Выводим значения каждого столбца
                     textshow.append(("\n"+ "The dish " + currentID + ": " + "\n" +
                             currentNameofdish + " (" +
-                            currentMealtime + ", " +
                             currentCategory + "). "));
 
-                    if (TextUtils.isEmpty(currentIngredient)) //проверка условия на то, что ingredient существует
+                    if (TextUtils.isEmpty(currentIngredients)) //проверка условия на то, что ingredient существует
                     {
                         return;
                     }else
                     {
                         textshow.append(("\n"  + "Ingredients: " + "\n" + "1. " +
-                                currentIngredient + "\n"));
+                                currentIngredients + "\n"));
                     }
 
                     textshow.append(("\n"));
@@ -118,7 +112,7 @@ public class ShowFragment extends Fragment {
             finally {
                 // Всегда закрываем курсор после чтения
                 cursor3.close();
-                cursor4.close();
+                cursor5.close();
                 HomeActivity.dbHelper.close();
             }
 

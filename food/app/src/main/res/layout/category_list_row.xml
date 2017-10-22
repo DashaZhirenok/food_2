@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linearLayout1"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:touchscreenBlocksFocus="false">
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
+    xmlns:font="http://schemas.android.com/apk/assets/font"
+    font:typeface="ROBOTO-REGULAR.TTF"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardElevation="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/color_category"
+        android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/ColIcon"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_gravity="center"
         android:layout_marginRight="14dp"
         android:layout_marginLeft="14dp"
-        android:src="@drawable/image_cook" >
+        android:src="@drawable/im_salad" >
     </ImageView>
 
     <TextView
         android:id="@+id/ColName"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="34dp"
+        android:gravity="center"
+        android:background="@drawable/im_category_text"
+        android:fontFamily="sans-serif-light"
         android:layout_weight="2"
         android:textColor="#ffffff"
         android:text="Name"
-        android:background="@color/color_category"
         android:textSize="24dp" />
 
 
-</LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

@@ -1,6 +1,7 @@
 package com.example.duska.food;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * Created by Duska on 12.10.2017.
@@ -73,8 +75,11 @@ public class CategoryFragment extends Fragment {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent myIntent = new Intent(CategoryFragment.this.getActivity(), ShowActivity.class);
-                startActivity(myIntent);
+            HashMap<String, Objects> currentMap = new HashMap<>();
+            currentMap = (HashMap) lvCategory.getItemAtPosition(position);
+
+            Intent myIntent = new Intent(CategoryFragment.this.getActivity(), ShowActivity.class);
+            startActivity(myIntent);
 
         }
     };
