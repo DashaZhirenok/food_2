@@ -22,8 +22,9 @@ public class CategoryFragment extends Fragment {
 
     ListView lvCategory;
     ArrayList<HashMap<String, Object>> myArrayList;
-    SimpleAdapter adapter;
-    HashMap<String, Object> map;
+    private SimpleAdapter adapter;
+    private HashMap<String, Object> map;
+    private View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class CategoryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_category, container, false);
+        view = inflater.inflate(R.layout.fragment_category, container, false);
 
         lvCategory = (ListView) view.findViewById(R.id.lvCategory);
 
@@ -51,11 +52,15 @@ public class CategoryFragment extends Fragment {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             //передаем категорию
-            HashMap<String, Objects> currentMap = new HashMap<>();
+            HashMap<String, Object> currentMap = new HashMap<>();
             currentMap = (HashMap) lvCategory.getItemAtPosition(position);
+            String currentCategoryName = (String) currentMap.get("Category");
+            Integer currentCategoryImg = (Integer) currentMap.get("Icon");
 
-            Intent myIntent = new Intent(CategoryFragment.this.getActivity(), ShowActivity.class);
-            startActivity(myIntent);
+            Intent goToCurrentCategory = new Intent(CategoryFragment.this.getActivity(), ShowActivity.class);
+            goToCurrentCategory.putExtra("Category", currentCategoryName);
+            goToCurrentCategory.putExtra("Icon", currentCategoryImg);
+            startActivity(goToCurrentCategory);
 
         }
     };

@@ -6,6 +6,7 @@
     <color name="color_button">#006064</color>
     <color name="color_text">#006064</color>
     <color name="color_text_hint">#ecebeb</color>
+    <color name="color_text_hint_spinner">#00f1efef</color>
     <color name="color_back">#ffffff</color>
     <color name="color_ettext">#5aa2ae</color>
 

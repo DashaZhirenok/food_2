@@ -17,6 +17,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
 
     private Button btn_readLog, btn_deleteAll;
     private DBHelper dbHelper;
+    private View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view  = inflater.inflate(R.layout.fragment_settings, container, false);
+        view  = inflater.inflate(R.layout.fragment_settings, container, false);
 
         btn_readLog = (Button) view.findViewById(R.id.btn_readLog);
         btn_readLog.setOnClickListener(this);

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 public class HelpFragment extends Fragment {
 
     private DBHelper dbHelper;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

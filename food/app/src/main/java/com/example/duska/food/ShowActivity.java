@@ -1,5 +1,6 @@
 package com.example.duska.food;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -10,14 +11,17 @@ import android.view.View;
 import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ShowActivity extends AppCompatActivity {
 
-    Toolbar toolbar;
-    RecyclerView recyclerView;
+    private Toolbar toolbar;
+    private RecyclerView recyclerView;
     private GridLayoutManager lLayout;
-    DBHelper dbHelper;
+    private DBHelper dbHelper;
+    private String currentCategoryFromIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ public class ShowActivity extends AppCompatActivity {
         RecyclerViewAdapter rcAdapter = new RecyclerViewAdapter(ShowActivity.this, rowListItem);
         rView.setAdapter(rcAdapter);
 
+        //String lName = intentFromFragmentCategory.getStringExtra("Icon");
+
     }
 
     View.OnClickListener onClickBack = new View.OnClickListener() {
@@ -54,24 +60,43 @@ public class ShowActivity extends AppCompatActivity {
         List<ItemObject> allItems = new ArrayList<ItemObject>();
         dbHelper = new DBHelper(this);
         //откроем для чтения
-        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        SQLiteDatabase database = dbHelper.getReadableDatabase();
         // Делаем запрос
         Cursor cursor = database.query(DBHelper.TABLE_MENU, null, null, null, null, null, null);
+        HashMap<String, String> nameOfDishMap = new HashMap<>();
         ArrayList<String> nameOfDishList = new ArrayList<>();
         ArrayList<Integer> imgPhotoOfDish = new ArrayList<>();
         try {
             int nameofdishColumnIndex = cursor.getColumnIndex(DBHelper.KEY_NAMEOFDISH);
+            int categoryColumnIndex = cursor.getColumnIndex(DBHelper.KEY_CATEGORY);
+
+            Intent intentFromFragmentCategory = getIntent();
+            currentCategoryFromIntent = intentFromFragmentCategory.getStringExtra("Category");
 
             while (cursor.moveToNext()){
-                String currentNameofdish = cursor.getString(nameofdishColumnIndex);
-                nameOfDishList.add(currentNameofdish);
-                imgPhotoOfDish.add(R.drawable.im_soup);
+
+                String currentCategory = cursor.getString(categoryColumnIndex);
+
+                if(currentCategory.equalsIgnoreCase(currentCategoryFromIntent)){
+                    String currentNameofdish = cursor.getString(nameofdishColumnIndex);
+                    nameOfDishList.add(currentNameofdish);
+                    imgPhotoOfDish.add(R.drawable.im_soup);
+                }
+
             }
         }
         finally {
             cursor.close();
         }
 
+
+
+//        for(Map.Entry<String,String> pair: nameOfDishMap.entrySet()){
+//            if (pair.getValue().equals(currentCategoryFromIntent)){
+//                nameOfDishList.add(pair.getKey());
+//            }
+//
+//        }
 
         for(int i=0; i<nameOfDishList.size(); i++){
             allItems.add(new ItemObject(nameOfDishList.get(i), imgPhotoOfDish.get(i)));

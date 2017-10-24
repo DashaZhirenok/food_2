@@ -17,7 +17,7 @@
     <!-- fragment_main RU-->
     <string name="hint_NameOfDIsh">Название блюда</string>
     <string name="hint_Mealtime">Mealtime (breakfast, dinner..)</string>
-    <string name="hint_Category">Категория (суп, дессерт, ..)</string>
+    <string name="hint_Category">Категория</string>
     <string name="hint_Ingredients">Ингредиенты</string>
     <string name="hint_CookingTime">Время приготовления</string>
     <string name="hint_TextOfRecipe">Рецепт</string>

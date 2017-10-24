@@ -72,6 +72,7 @@
                 <EditText
                     android:id="@+id/etNameofdish"
                     android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:inputType="textCapSentences"
                     android:layout_width="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
@@ -80,7 +81,6 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/color_ettext"
                     android:hint="@string/hint_NameOfDIsh"
-                    android:inputType="textPersonName"
                     android:textColor="@color/color_text"
                     android:textSize="20dp" />
             </android.support.design.widget.TextInputLayout>
@@ -109,20 +109,14 @@
                 android:layout_weight="9"
                 android:textColorHint="@color/color_text_hint">
 
-                <EditText
-                    android:id="@+id/etCategory"
-                    android:hint="@string/hint_Category"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                <Spinner
+                    android:id="@+id/spinnerCategory"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/color_text"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginRight="20dp"
-                    android:fontFamily="sans-serif-light"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/color_ettext"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/color_text"
-                    android:textSize="20dp" />
+                    android:layout_marginRight="20dp"/>
             </android.support.design.widget.TextInputLayout>
         </LinearLayout>
 
@@ -205,7 +199,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/color_ettext"
-                    android:inputType="textPersonName"
+                    android:inputType="textCapSentences"
                     android:layout_marginTop="10dp"
                     android:textColor="@color/color_text"
                     android:textSize="20dp" />
