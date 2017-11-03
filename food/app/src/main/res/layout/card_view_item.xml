@@ -16,6 +16,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+<<<<<<< HEAD
             android:layout_height="wrap_content"
             android:background="@color/color_category"
             android:gravity="center_horizontal">
@@ -26,6 +27,16 @@
                 android:layout_height="100dp"
                 android:src="@drawable/im_salad"
                 android:layout_gravity="center"/>
+=======
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/nameOfDish_Photo"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:src="@drawable/im_salad"
+                android:scaleType="centerCrop" />
+>>>>>>> 41f2b203711f37f1b923361ec9ddb49e2e59ab00
 
         </LinearLayout>
 
