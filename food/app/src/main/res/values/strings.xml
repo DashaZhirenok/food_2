@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Let`s cook!</string>
+
+    <!-- fragment settings -->
+    <string name="settings_read">If you want to READ IN LOG, click this button</string>
+    <string name="settings_clearAll">If you want to CLEAR ALL, click this button</string>
+    <string name="settings_xml">If you want read in XML, click this button</string>
+
+    <!-- fragment_main EN-->
+    <string name="EN_hint_NameOfDIsh">Name of dish</string>
+    <string name="EN_hint_Mealtime">Mealtime (breakfast, dinner..)</string>
+    <string name="EN_hint_Category">Category (soup, dessert..)</string>
+    <string name="EN_hint_Ingredients">Ingredients</string>
+    <string name="EN_hint_CookingTime">Cooking time</string>
+    <string name="EN_hint_TextOfRecipe">Text of recipe</string>
+
+    <!-- fragment_main RU-->
+    <string name="hint_NameOfDIsh">Название блюда</string>
+    <string name="hint_Mealtime">Mealtime (breakfast, dinner..)</string>
+    <string name="hint_Category">Категория</string>
+    <string name="hint_Ingredients">Ингредиенты</string>
+    <string name="hint_CookingTime">Время приготовления</string>
+    <string name="hint_TextOfRecipe">Рецепт</string>
+
+</resources>

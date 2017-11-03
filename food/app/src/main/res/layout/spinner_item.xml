@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <EditText
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        style="?android:attr/spinnerItemStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:editable="false"
+        android:clickable="false"
+        android:textColor="@color/color_text"
+        android:backgroundTint="@color/color_ettext"
+        android:textSize="20dp" />
