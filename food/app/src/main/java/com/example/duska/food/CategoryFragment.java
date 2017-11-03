@@ -13,11 +13,7 @@ import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-<<<<<<< HEAD
 
-=======
-import java.util.Objects;
->>>>>>> 41f2b203711f37f1b923361ec9ddb49e2e59ab00
 
 /**
  * Created by Duska on 12.10.2017.

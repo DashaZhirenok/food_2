@@ -3,24 +3,15 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-<<<<<<< HEAD
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-=======
-        <option name="distributionType" value="LOCAL" />
->>>>>>> 41f2b203711f37f1b923361ec9ddb49e2e59ab00
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="D:\aStudio\gradle\gradle-2.4" />
-        <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
-<<<<<<< HEAD
         <option name="resolveModulePerSourceSet" value="false" />
-=======
->>>>>>> 41f2b203711f37f1b923361ec9ddb49e2e59ab00
       </GradleProjectSettings>
     </option>
   </component>
