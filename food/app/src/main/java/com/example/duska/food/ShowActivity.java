@@ -38,12 +38,10 @@ public class ShowActivity extends AppCompatActivity {
         List<ItemObject> rowListItem = getAllItemList();
         lLayout = new GridLayoutManager(ShowActivity.this, 2);
 
-        RecyclerView rView = (RecyclerView)findViewById(R.id.recycler_view);
-
-        rView.setLayoutManager(lLayout);
+        recyclerView.setLayoutManager(lLayout);
 
         RecyclerViewAdapter rcAdapter = new RecyclerViewAdapter(ShowActivity.this, rowListItem);
-        rView.setAdapter(rcAdapter);
+        recyclerView.setAdapter(rcAdapter);
 
     }
 
@@ -66,7 +64,6 @@ public class ShowActivity extends AppCompatActivity {
         ArrayList<String> nameOfDishList = new ArrayList<>();
         ArrayList<Integer> imgPhotoOfDish = new ArrayList<>();
 
-
         try {
             int nameofdishColumnIndex = cursor.getColumnIndex(DBHelper.KEY_NAMEOFDISH);
             int categoryColumnIndex = cursor.getColumnIndex(DBHelper.KEY_CATEGORY);
@@ -74,7 +71,6 @@ public class ShowActivity extends AppCompatActivity {
             Intent intentFromFragmentCategory = getIntent();
             currentCategoryFromIntent = intentFromFragmentCategory.getStringExtra("Category");
             currentIconFromIntent = intentFromFragmentCategory.getIntExtra("Icon",0);
-
 
             while (cursor.moveToNext()){
 
@@ -88,10 +84,10 @@ public class ShowActivity extends AppCompatActivity {
 
             }
         }
+
         finally {
             cursor.close();
         }
-
 
         for(int i=0; i<nameOfDishList.size(); i++){
             allItems.add(new ItemObject(nameOfDishList.get(i), imgPhotoOfDish.get(i)));

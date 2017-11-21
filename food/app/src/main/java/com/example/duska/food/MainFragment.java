@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -23,7 +24,7 @@ import android.widget.Toast;
  */
 public class MainFragment extends Fragment implements View.OnClickListener {
 
-    private Button btnAdd, btnDelete;
+    private FloatingActionButton btnAdd;
     private EditText etNameofdish, etCookingTime, etIngredients1;
     private TextView text_of_recipe;
     private Spinner spinnerCategory;
@@ -43,11 +44,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_main, container, false);
 
-        btnAdd = (Button) view.findViewById(R.id.btnAdd);
+        btnAdd = (FloatingActionButton) view.findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(this);
-
-        btnDelete = (Button) view.findViewById(R.id.btnDelete);
-        btnDelete.setOnClickListener(this);
 
         etNameofdish = (EditText) view.findViewById(R.id.etNameofdish);
         etCookingTime = (EditText) view.findViewById(R.id.etCookingTime);
@@ -147,7 +145,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
                 }
 
-                case R.id.btnDelete: // удаление какого-то конкретного блюда
+                /*case R.id.btnDelete: // удаление какого-то конкретного блюда
                 {
                     if (nameofdish.equalsIgnoreCase("")) {
                         break;
@@ -159,7 +157,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
                     Log.d("mLog", "deleted rows count = " + updCount3);
 
                     break;
-                }
+                }*/
 
                 case R.layout.spinner_item:
                 {
